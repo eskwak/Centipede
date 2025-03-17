@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Users/edkwa/Desktop/CMake/CMake-Gui/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindOpenGL.cmake
+C:/Users/edkwa/Desktop/CMake/CMake-Gui/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/edkwa/Desktop/CMake/CMake-Gui/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Users/edkwa/Desktop/Centipede/SFML/src/SFML/Window/CMakeLists.txt
+C:/Users/edkwa/Desktop/Centipede/SFML/tools/windows/resource.rc.in

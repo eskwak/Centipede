@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/edkwa/Desktop/CMake/CMake-Gui/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeParseArguments.cmake
+C:/Users/edkwa/Desktop/Centipede/SFML/cmake/CompilerWarnings.cmake
+C:/Users/edkwa/Desktop/Centipede/SFML/cmake/Macros.cmake
+C:/Users/edkwa/Desktop/Centipede/SFML/src/SFML/CMakeLists.txt

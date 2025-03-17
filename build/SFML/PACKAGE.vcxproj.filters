@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\edkwa\Desktop\Centipede\build\CMakeFiles\f0d8b8405b26cfda0b0b15684d6d0877\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B00D0BF3-E7AA-3A63-9F1F-BC1D770B1325}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
