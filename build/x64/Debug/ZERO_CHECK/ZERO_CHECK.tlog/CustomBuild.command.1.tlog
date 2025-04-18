@@ -1,0 +1,10 @@
+^C:\USERS\EDKWA\DESKTOP\CENTIPEDE\BUILD\CMAKEFILES\911BBE79B2924D0CD389B8D29D949BC5\GENERATE.STAMP.RULE
+setlocal
+C:\Users\edkwa\Desktop\CMake\CMake-Gui\cmake-3.30.3-windows-x86_64\bin\cmake.exe -SC:/Users/edkwa/Desktop/Centipede -BC:/Users/edkwa/Desktop/Centipede/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/edkwa/Desktop/Centipede/build/Centipede_Game.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

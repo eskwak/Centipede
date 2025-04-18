@@ -27,9 +27,18 @@ int main() {
     /************************************************/
     /************************************************/
     
+    // Define deifnite window resolution. Default fullscreen results in inconsistent behavior during runtime.
+    const int windowWidth = 1920;
+    const int windowHeight = 1080;
 
-    // Using 1280x720 resolution given fullscreen gives inconsistent behavior.
-    sf::VideoMode vm(1280, 720);
+    // PNG strings.
+    const std::string centipedeHeadPNG = "graphics/CentipedeHead.png";
+    const std::string centipedeBodyPNG = "graphics/CentipedeBody.png";
+    const std::string mushroomNotHitPNG = "graphics/Mushroom0.png";
+    const std::string mushroomHitPNG = "graphics/Mushroom1.png";
+
+    // Set up window
+    sf::VideoMode vm(windowWidth, windowHeight);
     sf::RenderWindow window(vm, "Centipede Game", sf::Style::Default);
 
     // Default to 120 fps.
@@ -88,7 +97,7 @@ int main() {
     // set bounds & location for game texts
     sf::FloatRect textRect = startScreenText.getLocalBounds();
     startScreenText.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    startScreenText.setPosition(1280 / 2.0f, 720 / 2.0f);
+    startScreenText.setPosition(static_cast<float>(windowWidth / 2), static_cast<float>(windowHeight / 2));
     scoreText.setPosition(10, 5);
     livesText.setPosition(320, 5);
 
@@ -116,15 +125,15 @@ int main() {
     sf::Texture firstMushroomTexture;
     sf::Texture secondMushroomTexture;
 
-    firstMushroomTexture.loadFromFile("graphics/Mushroom0.png");
-    secondMushroomTexture.loadFromFile("graphics/Mushroom1.png");
+    firstMushroomTexture.loadFromFile(mushroomNotHitPNG);
+    secondMushroomTexture.loadFromFile(mushroomHitPNG);
 
     // list to store mushrooms
     std::vector<Mushroom> mushrooms;
 
     // generate 30 random mushrooms and store them
-    for (int i = 0; i < 30; i++) {
-        Mushroom tempMushroom = Mushroom(firstMushroomTexture, secondMushroomTexture, 1280, 900);
+    for (unsigned int i = 0; i < 30; i++) {
+        Mushroom tempMushroom = Mushroom(firstMushroomTexture, secondMushroomTexture, windowWidth, 900);
         mushrooms.push_back(tempMushroom);
     }
 
@@ -139,8 +148,8 @@ int main() {
     sf::Texture headTexture;
     sf::Texture bodyTexture;
 
-    headTexture.loadFromFile("graphics/CentipedeHead.png");
-    bodyTexture.loadFromFile("graphics/CentipedeBody.png");
+    headTexture.loadFromFile(centipedeHeadPNG);
+    bodyTexture.loadFromFile(centipedeBodyPNG);
 
     // initialize starting x-coordinate for centipede head.
     float startX = 550.0f;

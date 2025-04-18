@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\edkwa\Desktop\Centipede\Centipede_Game\src\main.cpp(471,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Centipede_Game.vcxproj -> C:\Users\edkwa\Desktop\Centipede\build\output\bin\Centipede_Game.exe
