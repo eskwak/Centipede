@@ -395,7 +395,6 @@ int main() {
             }
         }
 
-
         // update laser position
         if (!lasers.empty()) {
             for (auto& laser : lasers) {
