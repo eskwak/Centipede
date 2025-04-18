@@ -11,7 +11,6 @@
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include <vector>
-
 #include "Starship.h"
 #include "Mushroom.h"
 #include "Laser.h"
@@ -32,10 +31,13 @@ int main() {
     const int windowHeight = 1080;
 
     // PNG strings.
+    const std::string startScreenPNG = "graphics/startScreen.png";
+    const std::string textFontPNG = "fonts/KOMIKAP_.ttf";
     const std::string centipedeHeadPNG = "graphics/CentipedeHead.png";
     const std::string centipedeBodyPNG = "graphics/CentipedeBody.png";
     const std::string mushroomNotHitPNG = "graphics/Mushroom0.png";
     const std::string mushroomHitPNG = "graphics/Mushroom1.png";
+    const std::string starshipPNG = "graphics/StarShip.png";
 
     // Set up window
     sf::VideoMode vm(windowWidth, windowHeight);
@@ -46,7 +48,7 @@ int main() {
 
     // Setup background texture for start screen
     sf::Texture textureBackground;
-    textureBackground.loadFromFile("graphics/startScreen.png");
+    textureBackground.loadFromFile(startScreenPNG);
 
     // Set up start screen
     sf::Sprite startScreen;
@@ -70,7 +72,7 @@ int main() {
 
     // create and load font
     sf::Font font;
-    font.loadFromFile("fonts/KOMIKAP_.ttf");
+    font.loadFromFile(textFontPNG);
 
     // set fonts for game texts
     startScreenText.setFont(font);
@@ -78,7 +80,6 @@ int main() {
     livesText.setFont(font);
     gameOverText.setFont(font);
     winGameText.setFont(font);
-
 
     // initialize score & lives texts
     startScreenText.setString("Press ENTER to start");
@@ -114,7 +115,7 @@ int main() {
     Starship starship = Starship();
 
     sf::Texture starshipTexture;
-    starshipTexture.loadFromFile("graphics/StarShip.png");
+    starshipTexture.loadFromFile(starshipPNG);
 
     sf::Sprite starshipSprite;
     starshipSprite.setTexture(starshipTexture);
@@ -125,6 +126,7 @@ int main() {
     sf::Texture firstMushroomTexture;
     sf::Texture secondMushroomTexture;
 
+    // Load textures for both mushroom states (not hit, hit).
     firstMushroomTexture.loadFromFile(mushroomNotHitPNG);
     secondMushroomTexture.loadFromFile(mushroomHitPNG);
 
@@ -204,7 +206,7 @@ int main() {
         }
 
         // Setup for when player wins game.
-        if (win == true) {
+        if (win) {
             window.clear();
 
             winGameText.setFont(font);
@@ -214,7 +216,7 @@ int main() {
 
             sf::FloatRect winGameTextRect = winGameText.getLocalBounds();
             winGameText.setOrigin(winGameTextRect.width / 2.0f, winGameTextRect.height / 2.0f);
-            winGameText.setPosition(1280 / 2.0f, 720 / 2.0f);
+            winGameText.setPosition(static_cast<float>(windowWidth / 2), static_cast<float>(windowHeight) / 2);
 
             window.draw(winGameText);
             window.display();
@@ -225,7 +227,7 @@ int main() {
         }
 
         // Setup for when player loses game
-        if (gameOver == true) {
+        if (gameOver) {
             window.clear();
 
             // Set up game over text
@@ -236,7 +238,7 @@ int main() {
 
             sf::FloatRect gameOverTextRect = gameOverText.getLocalBounds();
             gameOverText.setOrigin(gameOverTextRect.width / 2.0f, gameOverTextRect.height / 2.0f);
-            gameOverText.setPosition(1280 / 2.0f, 720 / 2.0f);
+            gameOverText.setPosition(windowWidth / 2.0f, windowHeight / 2.0f);
 
             // display game over text
             window.draw(gameOverText);
@@ -248,7 +250,7 @@ int main() {
             }
         }
 
-        // Terminate game
+        // Force close window. Terminates game.
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             window.close();
         }
@@ -260,25 +262,31 @@ int main() {
             window.clear();
         }
 
-        // Starship movement conditions
+        // Prompt right starship movement.
         if (gameStarted && sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             starship.setStarshipMovingRight(true);
         }
         else {
             starship.setStarshipMovingRight(false);
         }
+
+        // Prompt left starship movement.
         if (gameStarted && sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             starship.setStarshipMovingLeft(true);
         }
         else {
             starship.setStarshipMovingLeft(false);
         }
+
+        // Prompt upward starship movement.
         if (gameStarted && sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             starship.setStarshipMovingUp(true);
         }
         else {
             starship.setStarshipMovingUp(false);
         }
+
+        // Prompt downward starship movement.
         if (gameStarted && sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             starship.setStarshipMovingDown(true);
         }
@@ -296,11 +304,11 @@ int main() {
                 segment.moveDown(30.0f);
             }
             // right boundary
-            if (segment.getPosition().x >= 1280.0f) {
+            if (segment.getPosition().x >= static_cast<float>(windowWidth)) {
                 segment.moveDown(30.0f);
             }
             // check if centipede has reached the bottom
-            if (segment.getPosition().y >= 720.0f) {
+            if (segment.getPosition().y >= static_cast<float>(windowHeight)) {
                 gameOver = true;
                 break;
             }
