@@ -16,7 +16,7 @@ A modern recreation of the classic **Centipede arcade game**, built from scratch
 
 ---
 
-<img src="images/centipede.png" alt="Gameplay Screenshot" width="600"/>
+<img src="images/centipede.png" alt="Gameplay Screenshot"/>
 
 ---
 
