@@ -13,8 +13,8 @@ Spider::Spider() {
     spiderTexture.loadFromFile("graphics/spider.png");
     spiderSprite.setTexture(spiderTexture);
     spiderSprite.setScale(1.0f, 1.0f);
-    spiderSprite.setPosition(rand() % 1280, rand() % 720);
-    speed = 125.0f;
+    spiderSprite.setPosition(rand() % 1920, rand() % 1080);
+    speed = 100.0f;
 }
 
 // updates Spider's position
@@ -51,14 +51,14 @@ void Spider::update(float dt) {
     if (spiderSprite.getPosition().x <= 0) {
         spiderSprite.setPosition(0, spiderSprite.getPosition().y);
     }
-    else if (spiderSprite.getPosition().x >= 1280) {
-        spiderSprite.setPosition(1280, spiderSprite.getPosition().y);
+    else if (spiderSprite.getPosition().x >= 1920) {
+        spiderSprite.setPosition(1920, spiderSprite.getPosition().y);
     }
     else if (spiderSprite.getPosition().y <= 0) {
         spiderSprite.setPosition(spiderSprite.getPosition().x, 0);
     }
-    else if (spiderSprite.getPosition().y >= 720) {
-        spiderSprite.setPosition(spiderSprite.getPosition().x, 720);
+    else if (spiderSprite.getPosition().y >= 1080) {
+        spiderSprite.setPosition(spiderSprite.getPosition().x, 1080);
     }
 }
 

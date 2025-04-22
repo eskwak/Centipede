@@ -22,7 +22,7 @@ Mushroom::Mushroom(sf::Texture& firstTexture, sf::Texture& secondTexture, int sc
     std::default_random_engine gen(std::random_device{}());
 
     std::uniform_int_distribution<> xDist(100, screenWidth - 100);
-    std::uniform_int_distribution<> yDist(50, screenHeight - 400);
+    std::uniform_int_distribution<> yDist(50, screenHeight - 300);
 
     this->position.x = xDist(gen);
     this->position.y = yDist(gen);

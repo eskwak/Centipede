@@ -54,7 +54,7 @@ int main() {
     sf::Sprite startScreen;
     startScreen.setTexture(textureBackground);
     startScreen.setPosition(0, 0);
-    startScreen.setScale(1.4f, 1.4f);
+    startScreen.setScale(1.9f, 1.9f);
 
     // Clock set up for manual movements
     sf::Clock clock;
@@ -295,7 +295,7 @@ int main() {
         }
 
         // set up time difference
-        float deltaTime = clock.restart().asSeconds();
+        float deltaTime = (clock.restart().asSeconds()) / 2.0f;
 
         // update centipede position
         for (auto& segment : centipede) {
@@ -325,7 +325,7 @@ int main() {
                 }
             }
             // move centipede horizontally
-            segment.move(segment.getDirection() * 6.0f);
+            segment.move(segment.getDirection() * 3.0f);
             segment.updatePosition();
         }
 

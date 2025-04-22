@@ -10,8 +10,8 @@
 
 // implement starship's constructor
 Starship::Starship() {
-    position.x = 1280 / 2.0f;
-    position.y = 720 - 190;
+    position.x = 1920 / 2.0f;
+    position.y = 1080 - 270;
 
     starshipMovingRight = false;
     starshipMovingLeft = false;
@@ -42,9 +42,9 @@ void Starship::update(float dt) {
     }
 
     if (position.x < 0) position.x = 0;
-    if (position.x > 1280 - 50) position.x = 1280 - 50;
+    if (position.x > 1920 - 50) position.x = 1920 - 50;
     if (position.y < 0) position.y = 0;
-    if (position.y > 720 - 50) position.y = 720 - 50;
+    if (position.y > 1080 - 50) position.y = 1080 - 50;
 }
 
 // sets the starship's speed 

@@ -17,7 +17,7 @@ Laser::Laser(float startX, float startY) {
     laserShape.setFillColor(sf::Color::Red);
     laserShape.setPosition(position);
 
-    laserSpeed = 650.0f;
+    laserSpeed = 1000.0f;
 }
 
 // updates laser's position 
