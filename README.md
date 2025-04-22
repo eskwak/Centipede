@@ -4,18 +4,6 @@ A modern recreation of the classic **Centipede arcade game**, built from scratch
 
 ---
 
-## Features
-
-- Classic Centipede-style movement and gameplay
-- Responsive player-controlled starship
-- Shooting mechanics with laser collisions
-- Mushroom spawning and interaction
-- Enemy AI: centipedes, spiders with randomized movement
-- Game-over logic and player lives
-- Clean modular codebase (C++/SFML)
-
----
-
 <img src="images/centipede.png" alt="Gameplay Screenshot"/>
 
 ---
